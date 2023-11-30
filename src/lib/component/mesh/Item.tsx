@@ -1,7 +1,7 @@
 import { Billboard, Line, Line2Props, RoundedBox, Sphere } from '@react-three/drei'
-import { Vector3, useFrame } from '@react-three/fiber'
+import { ThreeEvent, Vector3, useFrame } from '@react-three/fiber'
 import { ForwardedRef, ReactNode, forwardRef, useEffect, useRef } from 'react'
-import { AxesHelper, Group, Mesh } from 'three'
+import { AxesHelper, BufferGeometry, Group, Mesh, NormalBufferAttributes } from 'three'
 
 interface ItemProps {
   position?: Vector3
@@ -31,24 +31,30 @@ const Ball = () => {
   )
 }
 
-const Square = forwardRef(
-  ({ children, position }: { children?: ReactNode; position?: Vector3 }, ref: ForwardedRef<Mesh>) => {
-    return (
-      <RoundedBox
-        ref={ref}
-        position={position}
-        args={[2, 2, 0.2]}
-        radius={0.1}
-        smoothness={4}
-        bevelSegments={4}
-        creaseAngle={0.4}
-      >
-        <meshPhongMaterial color={'#e8e8e8'} />
-        {/* <axesHelper scale={10} /> */}
-      </RoundedBox>
-    )
-  },
-)
+interface SquareProps {
+  children?: ReactNode
+  position?: Vector3
+  onClick?: (e: ThreeEvent<MouseEvent>) => void
+  onPointerMissed?: () => void
+}
+
+const Square = forwardRef((props: SquareProps, ref: ForwardedRef<Mesh>) => {
+  return (
+    <RoundedBox
+      {...props}
+      ref={ref}
+      position={props.position}
+      args={[2, 2, 0.2]}
+      radius={0.1}
+      smoothness={4}
+      bevelSegments={4}
+      creaseAngle={0.4}
+    >
+      <meshPhongMaterial color={'#e8e8e8'} />
+      {/* <axesHelper scale={10} /> */}
+    </RoundedBox>
+  )
+})
 
 const BillboardGroup = Object.assign(BGroup, { Ball, Square })
 

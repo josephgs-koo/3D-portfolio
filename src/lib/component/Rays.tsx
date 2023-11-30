@@ -1,9 +1,11 @@
-import { useRef, useEffect, RefObject, ReactNode } from 'react'
-import { useFrame } from '@react-three/fiber'
+import { useRef, useEffect, RefObject, ReactNode, useState } from 'react'
+import { ThreeEvent, useFrame } from '@react-three/fiber'
 import { CylinderGeometry, Group, Mesh, MeshBasicMaterial, Raycaster, Vector3 } from 'three'
-import { RenderTexture, Sphere, Text } from '@react-three/drei'
+import { Bounds, Float, RenderTexture, Sphere, Text, useBounds, useCamera } from '@react-three/drei'
+import BillboardGroup from './mesh/Item'
+import { useNavigate } from 'react-router-dom'
 
-const pointDist = 5
+const pointDist = 3
 const raycaster = new Raycaster()
 const origVec = new Vector3()
 const dirVec = new Vector3()
@@ -38,7 +40,9 @@ const Ray = ({ target, children }: IRayProps) => {
       obj.rotation.x += xDir * delta
       obj.rotation.z += yDir * delta
 
-      orig.lookAt(state.camera.position)
+      const tar = new Vector3()
+      const origPosition = orig.getWorldPosition(tar)
+      orig.lookAt(new Vector3(origPosition.x, origPosition.y, origPosition.z + 1))
 
       orig.updateMatrixWorld()
       origVec.setFromMatrixPosition(orig.matrixWorld)
@@ -71,12 +75,21 @@ interface IRayDetailProps {
   title: string
 }
 const RayDetail = ({ title, children }: IRayDetailProps) => {
+  const [hover, setHover] = useState(false)
+  const router = useNavigate()
+
   return (
     <>
-      <Text color={'#2d2a2a'} fontSize={0.7}>
-        {title}
+      <Text
+        color={hover ? '#4d4747' : '#2d2a2a'}
+        fontSize={0.5}
+        anchorX="left"
+        onClick={() => router(`/${title !== 'Profile' ? title : ''}`)}
+        onPointerOver={() => setHover(true)}
+        onPointerLeave={() => setHover(false)}
+      >
+        {children}
       </Text>
-      {children && <group position={[0, -1, 0]}>{children}</group>}
     </>
   )
 }

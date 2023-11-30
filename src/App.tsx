@@ -1,59 +1,35 @@
 import ModalContextProvider from './lib/utils/ModalContext'
 import { Canvas } from '@react-three/fiber'
-import { Float, Html, Hud, OrbitControls } from '@react-three/drei'
-import data from './lib/data/data.json'
-import { Group, Mesh } from 'three'
-import { useEffect, useRef } from 'react'
+import Scene from './lib/component/Scene'
+import { Vector3 } from 'three'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Layout from './lib/component/Layout'
+import Profile from './lib/pages/Profile'
+import Skills from './lib/pages/Skills'
+import Projects from './lib/pages/Projects'
+import Study from './lib/pages/Study'
 
-import BillboardGroup from './lib/component/mesh/Item'
-import Ray from './lib/component/Rays'
-import Profile from './lib/component/mesh/Profile'
+const look = new Vector3(0, 0, 0)
 
 function App() {
-  const squareRef = useRef<Mesh>(null)
-  const someRef = useRef<Mesh>(null)
-
-  useEffect(() => {}, [])
-
   return (
     <ModalContextProvider>
-      <div className="relative w-screen h-[100dvh]">
-        <Canvas camera={{ position: [0, 0, 10] }}>
-          <color attach={'background'} args={['#dfdfdf']} />
-          <axesHelper scale={30} />
-          <ambientLight intensity={0.5} />
-          <spotLight
-            intensity={1}
-            angle={0.2}
-            penumbra={1}
-            position={[30, 30, 30]}
-            castShadow
-            shadow-mapSize={[512, 512]}
-          />
-          <directionalLight position={[3, 3, 3]} intensity={3} />
-
-          <Float speed={4} rotationIntensity={1} floatIntensity={2}>
-            <Profile position={[0, 0, 0]} ref={squareRef} />
-          </Float>
-
-          {Object.keys(data).map((x) => {
-            return (
-              <Ray target={squareRef}>
-                <Ray.RayDetail title={x}></Ray.RayDetail>
-              </Ray>
-            )
-          })}
-
-          <OrbitControls />
-
-          <Hud>
-            <Html>
-              <div className="h-screen w- bg-neutral-300 bg-opacity-70"></div>
-            </Html>
-          </Hud>
-        </Canvas>
-        {/* <Modal /> */}
-      </div>
+      <BrowserRouter>
+        <div className="relative w-2/3 h-[100dvh]">
+          <Canvas camera={{ position: [0, 0, 10], lookAt: () => look }}>
+            <Scene />
+          </Canvas>
+          {/* <Modal /> */}
+        </div>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="" element={<Profile />} />
+            <Route path="Skills" element={<Skills />} />
+            <Route path="Projects" element={<Projects />} />
+            <Route path="Study" element={<Study />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </ModalContextProvider>
   )
 }
