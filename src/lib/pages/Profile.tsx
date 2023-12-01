@@ -11,7 +11,7 @@ const Profile = () => {
   return (
     <>
       <TitleLayout title={data.Profile.name} sub={data.Profile.sentence} padding={false}>
-        <div className="flex flex-row items-center w-full gap-4 border-b">
+        <div className="flex flex-row items-center w-full gap-4">
           <div className="w-1/2 min-w-[200px]">
             <img src={profileImg} alt="profileImg" className="w-full aspect-square" />
           </div>
@@ -26,8 +26,9 @@ const Profile = () => {
             </List>
           </div>
         </div>
-        <Space direction="vertical" space={10} />
-
+        <Space direction="vertical" space={4} />
+        <hr className="border-black border-dashed" />
+        <Space direction="vertical" space={4} />
         <div className="p-2">
           {data.Profile.introduce.split('\n').map((x, idx) => {
             if (idx % 2 === 0)

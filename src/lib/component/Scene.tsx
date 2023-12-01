@@ -1,6 +1,6 @@
 import { Bvh, ContactShadows, Float } from '@react-three/drei'
 import Profile from './mesh/Profile'
-import RayGroup from './Rays'
+import RayGroup from './mesh/Rays'
 import { useRef } from 'react'
 import { Mesh } from 'three'
 import data from '../data/data'

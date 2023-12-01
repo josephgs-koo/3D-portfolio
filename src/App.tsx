@@ -8,6 +8,8 @@ import Profile from './lib/pages/Profile'
 import Skills from './lib/pages/Skills'
 import Projects from './lib/pages/Projects'
 import Study from './lib/pages/Study'
+import data from './lib/data/data'
+import ProjectDetail from './lib/pages/ProjectDetail'
 
 const look = new Vector3(0, 0, 0)
 
@@ -26,7 +28,14 @@ function App() {
             <Route path="" element={<Profile />} />
             <Route path="Skills" element={<Skills />} />
             <Route path="Projects" element={<Projects />} />
-            <Route path="Study" element={<Study />} />
+            {data.Projects.map((x) => (
+              <Route
+                key={x.projectName}
+                path={`Projects/${x.projectName}`}
+                element={<ProjectDetail project={x.projectName} key={x.projectName} />}
+              />
+            ))}
+            <Route path="Education" element={<Study />} />
           </Route>
         </Routes>
       </div>

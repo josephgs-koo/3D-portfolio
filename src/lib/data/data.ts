@@ -34,11 +34,14 @@ const data = {
   ],
   Projects: [
     {
+      projectName: '3D-Portfolio',
       title: '',
-      explain: '',
+      sub: '',
+      roll: [''],
+      skills: [''],
       period: ['', ''],
-      deploy: '',
-      github: '',
+      from: '',
+      urls: { deploy: '', github: '' },
       WID: [
         {
           title: '',
@@ -46,8 +49,134 @@ const data = {
         },
       ],
     },
+    {
+      projectName: 'DevShare',
+      title: 'DevShare',
+      sub: 'NextJS 스터디 프로젝트 : 이력서 등록 및 공유 사이트 (2인)',
+      roll: ['팀장', '백엔드', '프론트엔드'],
+      skills: ['Next.js', 'React-Query', 'Recoil', 'React-Hook-Form', 'Tailwindcss', 'AWS(S3)', 'MongoDB', 'Vercel'],
+      period: ['2023.06', '2023.10'],
+      from: '수수방관 스터디',
+      urls: { deploy: 'https://devshare-delta.vercel.app/', github: 'https://github.com/Subang-Study/devshare' },
+      WID: [
+        {
+          title: 'Next.js 13의 App Router이용',
+          detail: [
+            'Parallel Routes와 Intercepting Routes를 이용한 로그인 모달 구현',
+            'Route Handler로 백엔드 Api 구현 및 요청 경로 재검증',
+            '클라이언트상에서 라우팅 캐시로 인해 이력서 삭제 후 재작성 시 변경된 데이터 반영이 안되던 오류 수정',
+          ],
+        },
+        {
+          title: 'React-Query를 이용한 서버 상태 관리',
+          detail: ['useInfiniteQuery를 이용한 이력서 리스트 무한 스크롤 구현'],
+        },
+        {
+          title: 'Recoil을 이용한 클라이언트 상태 관리',
+          detail: [
+            'Tailwind CSS로 다크모드기능 및 다크모드 상태 관리 구현',
+            'Api응답에 따른 에러 처리를 위한 토스트 팝업 및 상태 관리 구현',
+          ],
+        },
+        {
+          title: 'React-Hook-Form도입으로 form관련 데이터변동에 따른 재렌더링 최소화',
+        },
+        { title: 'AWS S3의 presigned url을 이용한 이미지 업로드 구현' },
+        { title: 'Vercel을 이용한 배포' },
+      ],
+    },
+    {
+      projectName: 'ChatSS',
+      title: 'ChatSS',
+      sub: 'WebRTC 기반 실시간 1대1 체스게임과 채팅 (개인)',
+      roll: ['백엔드', '프론트엔드'],
+      skills: ['React', 'Typescript', 'Recoil', 'Emotion', 'Node.js', 'Express', 'Socket.io', 'WebRTC'],
+      period: ['2023.04', '2023.05'],
+      from: '개인 프로젝트',
+      urls: { github: 'https://github.com/josephgs-koo/chatss' },
+      WID: [
+        {
+          title: 'WebRTC를 이용한 사용자간 1:1 데이터 통신 구현',
+          detail: [
+            'Express와 SocketIO를 이용한 WebRTC signal server 구성',
+            'WebRTC통신과 관련 context를 구성해 통신관련 로직 분리',
+          ],
+        },
+        {
+          title: 'Recoil을 이용한 게임 데이터 및 상태 관리',
+          detail: ['recoil family를 이용해 게임관련 데이터 부분구독및 수정 구현'],
+        },
+      ],
+    },
+    {
+      projectName: 'MOHAE',
+      title: 'MOHAE : 취향 공유 서비스',
+      sub: '코드스테이츠 파이널 프로젝트 (6인 / 4주)',
+      roll: ['프론트엔드'],
+      skills: ['React', 'Typescript', 'Styled-Component', 'Axios', 'AWS(S3)'],
+      period: ['2023.03', '2023.04'],
+      from: '코드스테이츠',
+      urls: {
+        deploy: 'http://mohea.s3-website-ap-southeast-2.amazonaws.com/',
+        github: 'https://github.com/codestates-seb/seb42_main_006',
+      },
+      WID: [
+        {
+          title: '메인 게시글 작성 / 보기 / 수정 / 삭제 기능 구현',
+          detail: [
+            '개발 초기 남용되었던 useState코드를 입력 관련 상태 하나로 통일해서 관리하는 방식으로 리팩토링',
+            '플레이리스트의 사용자 편의성을 위해 드래그앤 드롭기능으로 리스트 순서를 바꿀 수 있게 UI구현',
+          ],
+        },
+        {
+          title: '로그인, 회원가입 기능 구현 및 JWT 토큰 관리',
+          detail: ['Axios interceptor를 이용한 JWT토큰 재발급 기능 구현'],
+        },
+        {
+          title: '게시글과 모집글 페이지의 무한 스크롤 구현, 플레이리스트 DnD기능 구현',
+        },
+        {
+          title: '에러처리나 Api요청에 따른 응답 처리를 위한 공통 모달 컴포넌트 구성',
+          detail: [
+            'Context Api를 이용한 공통모달 관련 상태관리',
+            'useMemo를 이용해 Context Api로 인한 재렌더링 오류 수정',
+          ],
+        },
+        {
+          title: 'AWS S3와 Github Action을 통한 배포자동화',
+        },
+      ],
+    },
+    {
+      projectName: 'Kiosk',
+      title: '',
+      sub: '얼굴인식을 통한 자동높이조절과 원격주문 기능이 포함된 키오스크 개발 (3인 / 1년)',
+      roll: ['팀장', '백엔드', '프론트엔드'],
+      skills: ['HTML/CSS', 'Javascript', 'Python', 'Flask', 'OpenCV', 'Socket.io', 'GCP', 'Firebase'],
+      period: ['2021.09', '2022.09'],
+      from: '남서울대학교',
+      urls: {},
+      WID: [
+        {
+          title: 'OpenCV를 이용한 얼굴인식 구현',
+        },
+        {
+          title: '모터 조작 시스템 설계 및 회로 구성',
+        },
+        {
+          title: '얼굴인식과 모터조작 시스템을 이용한 자동 높이 조절기능 구현',
+          detail: ['프로세서 성능의 한계로 오작동 되는 현상을 수정하기 위해  시스템 구조 수정 및 재설계'],
+        },
+        {
+          title: '주문 시스템 프론트엔드 개발',
+        },
+        {
+          title: 'GCP, Firebase를 이용해 Flask로 백엔드 개발 및 배포',
+        },
+      ],
+    },
   ],
-  Study: [
+  Education: [
     {
       from: '수수방관 스터디',
       detail: '부트캠프를 수료하고 취업까지 꾸준히 공부하고 기술들을 연마하기 위한 스터디',
