@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import Span from './Items'
+import Space from './Spacing'
 
 interface ITitleLayoutProps {
   children: ReactNode
@@ -21,7 +22,9 @@ const TitleLayout = ({ children, title, sub, padding = true }: ITitleLayoutProps
           </Span>
         )}
       </div>
-      <div className="h-10"></div>
+      <Space direction="vertical" space={4} />
+      <hr className="border-black border-dashed" />
+      <Space direction="vertical" space={4} />
       <div className={`${padding && 'p-4'}`}>{children}</div>
     </div>
   )

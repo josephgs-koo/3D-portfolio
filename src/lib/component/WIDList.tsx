@@ -16,10 +16,10 @@ const WIDList = ({ wid }: IWIDListProps) => {
             {x.title}
           </Span>
           {x.detail && (
-            <List className="pl-8">
+            <List className="pl-10 list-[circle]">
               {x.detail.map((ele) => (
                 <List.Li key={ele}>
-                  <Span fontSize="basic">{'- ' + ele}</Span>
+                  <Span fontSize="basic">{ele}</Span>
                 </List.Li>
               ))}
             </List>

@@ -23,7 +23,7 @@ const ProjectCard = ({ project }: IProjectContent) => {
   return (
     <Link
       to={`/Projects/${project.projectName}`}
-      className="w-[45%] aspect-square border border-neutral-500 p-2 rounded-md"
+      className="w-[45%] aspect-square border border-neutral-500 p-2 rounded-md bg-white hover:bg-neutral-200"
     >
       <div className="w-full h-3/5">
         {images.logo[project.projectName] ? (
