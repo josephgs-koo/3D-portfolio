@@ -1,6 +1,6 @@
-import TitleLayout from '../component/TitleLayout'
-import Span from '../component/Items'
-import List from '../component/List'
+import TitleLayout from '../component/ui/TitleLayout'
+import Span from '../component/ui/Items'
+import List from '../component/ui/List'
 import data from '../data/data'
 
 const Skills = () => {

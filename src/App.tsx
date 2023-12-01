@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import Scene from './lib/component/Scene'
 import { Vector3 } from 'three'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Layout from './lib/component/Layout'
+import Layout from './lib/component/ui/Layout'
 import Profile from './lib/pages/Profile'
 import Skills from './lib/pages/Skills'
 import Projects from './lib/pages/Projects'
@@ -13,10 +13,10 @@ const look = new Vector3(0, 0, 0)
 
 function App() {
   return (
-    <ModalContextProvider>
-      <BrowserRouter>
-        <div className="relative w-2/3 h-[100dvh]">
-          <Canvas camera={{ position: [0, 0, 10], lookAt: () => look }}>
+    <BrowserRouter>
+      <div className="relative max-w-7xl mx-auto w-full h-[100dvh]">
+        <div className="w-2/3 h-full">
+          <Canvas camera={{ position: [0, -1, 10], lookAt: () => look }}>
             <Scene />
           </Canvas>
           {/* <Modal /> */}
@@ -29,8 +29,8 @@ function App() {
             <Route path="Study" element={<Study />} />
           </Route>
         </Routes>
-      </BrowserRouter>
-    </ModalContextProvider>
+      </div>
+    </BrowserRouter>
   )
 }
 

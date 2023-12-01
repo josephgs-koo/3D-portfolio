@@ -1,5 +1,6 @@
-import Span from './Items'
-import List from './List'
+import Span from './ui/Items'
+import List from './ui/List'
+import Space from './ui/Spacing'
 
 type dataType = {
   from: string
@@ -14,8 +15,11 @@ const StudyDetail = ({ data }: { data: dataType }) => {
       <div className="w-1/5">
         <Span fontSize="basic">{data.period[0] + ' - ' + data.period[1]}</Span>
       </div>
+      <Space direction="horizontal" space={4} />
       <div className="flex-1">
-        <Span fontSize="semi-title">{data.from}</Span>
+        <Span fontSize="semi-title" bold="semi-bold">
+          {data.from}
+        </Span>
         <br />
         <Span fontSize="basic">{data.detail}</Span>
         <hr className="border-black" />

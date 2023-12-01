@@ -1,6 +1,7 @@
 export const FONTSIZE = {
-  detail: 'text-sm font-normal',
-  basic: 'text-base font-normal',
-  title: 'text-5xl font-bold',
-  'semi-title': 'text-xl font-semibold',
+  detail: 'text-sm',
+  basic: 'text-base',
+  strong: 'text-lg',
+  'semi-title': 'text-xl',
+  title: 'text-5xl',
 } as const

@@ -12,6 +12,6 @@ const Li = (props: ILiProps) => {
   return <li {...props}>{props.children}</li>
 }
 
-const List = Object.assign(Ul, { Li: Li })
+const List = Object.assign(Ul, { Li })
 
 export default List

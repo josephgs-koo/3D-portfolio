@@ -1,8 +1,7 @@
 import { useRef, useEffect, RefObject, ReactNode, useState } from 'react'
-import { ThreeEvent, useFrame } from '@react-three/fiber'
+import { useFrame } from '@react-three/fiber'
 import { CylinderGeometry, Group, Mesh, MeshBasicMaterial, Raycaster, Vector3 } from 'three'
-import { Bounds, Float, RenderTexture, Sphere, Text, useBounds, useCamera } from '@react-three/drei'
-import BillboardGroup from './mesh/Item'
+import { Text } from '@react-three/drei'
 import { useNavigate } from 'react-router-dom'
 
 const pointDist = 3
