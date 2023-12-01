@@ -61,7 +61,7 @@ const ProjectDetail = ({ project }: IProjectDetail) => {
             <Span fontSize="basic">{curData.from}</Span>
           </KeyVal>
         </div>
-        <div className="w-1/2 p-1">
+        <div className="w-1/2">
           <KeyVal title="Skills">
             <div className="flex flex-wrap gap-1">
               {curData.skills.map((x) => (

@@ -149,7 +149,7 @@ const data = {
     },
     {
       projectName: 'Kiosk',
-      title: '',
+      title: '사용자 맞춤형 키오스크',
       sub: '얼굴인식을 통한 자동높이조절과 원격주문 기능이 포함된 키오스크 개발 (3인 / 1년)',
       roll: ['팀장', '백엔드', '프론트엔드'],
       skills: ['HTML/CSS', 'Javascript', 'Python', 'Flask', 'OpenCV', 'Socket.io', 'GCP', 'Firebase'],
