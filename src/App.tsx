@@ -1,4 +1,3 @@
-import ModalContextProvider from './lib/utils/ModalContext'
 import { Canvas } from '@react-three/fiber'
 import Scene from './lib/component/Scene'
 import { Vector3 } from 'three'

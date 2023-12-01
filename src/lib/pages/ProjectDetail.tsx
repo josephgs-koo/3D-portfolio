@@ -1,7 +1,7 @@
 import WIDList from '../component/WIDList'
 import Span from '../component/ui/Items'
 import KeyVal from '../component/ui/KeyVal'
-import TitleLayout from '../component/ui/TitleLayout'
+import Space from '../component/ui/Spacing'
 import data from '../data/data'
 import images from '../utils/projectImages'
 
@@ -17,9 +17,11 @@ const ProjectDetail = ({ project }: IProjectDetail) => {
         {images.banner[project] && (
           <img src={images.banner[project]} alt="project-banner" className="object-contain w-full h-44" />
         )}
+        <Space direction="vertical" space={4} />
         <Span fontSize="title" bold="semi-bold" className="block">
           {curData.title}
         </Span>
+        <Space direction="vertical" space={4} />
         <Span fontSize="semi-title" bold="semi-bold">
           {curData.sub}
         </Span>
@@ -38,9 +40,9 @@ const ProjectDetail = ({ project }: IProjectDetail) => {
           </KeyVal>
         )}
       </div>
-
-      <hr className="my-2 border-black border-dashed" />
-
+      <Space direction="vertical" space={4} />
+      <hr className="border-black border-dashed" />
+      <Space direction="vertical" space={4} />
       <div className="flex flex-row">
         <div className="flex flex-col w-1/2 gap-2 px-1">
           <KeyVal title="역할">
@@ -71,9 +73,9 @@ const ProjectDetail = ({ project }: IProjectDetail) => {
           </KeyVal>
         </div>
       </div>
-
-      <hr className="my-2 border-black border-dashed" />
-
+      <Space direction="vertical" space={4} />
+      <hr className="border-black border-dashed " />
+      <Space direction="vertical" space={4} />
       <div>
         <Span fontSize="semi-title" bold="semi-bold" className="mb-4">
           기여한 부분

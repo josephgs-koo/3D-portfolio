@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from 'react'
+import { HTMLAttributes } from 'react'
 import { FONTSIZE } from '../../style/styleOpt'
 
 interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
