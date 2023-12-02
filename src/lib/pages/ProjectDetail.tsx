@@ -16,9 +16,11 @@ const ProjectDetail = ({ project }: IProjectDetail) => {
 
   return (
     <div className="relative">
-      {images.banner[project] && (
-        <img src={images.banner[project]} alt="project-banner" className="object-cover w-full h-44" />
-      )}
+      <div className="w-full min-h-[20px]">
+        {images.banner[project] && (
+          <img src={images.banner[project]} alt="project-banner" className="object-cover w-full h-44" />
+        )}
+      </div>
       <div className="px-4">
         <div className="flex flex-col gap-1">
           <Space direction="vertical" space={4} />
